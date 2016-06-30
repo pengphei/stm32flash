@@ -15,9 +15,9 @@ if "mipsel" == platform:
     PREFIX = EXE_PATH+ '/mipsel-openwrt-linux-uclibc-'
     STAGING_DIR = '../openwrt/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/'
 elif "arm" == platform:
-    EXE_PATH = "../../globot/buildroot/output/host/usr/bin"
+    EXE_PATH = "../../buildroot/output/host/usr/bin"
     PREFIX = EXE_PATH+ "/arm-linux-gnueabihf-"
-    STAGING_DIR = os.path.abspath(".") + "/../../globot/buildroot/output/staging/"
+    STAGING_DIR = os.path.abspath(".") + "/../../buildroot/output/staging/"
     #EXE_PATH = '~/build/gcc-linaro/bin/'
     #PREFIX = EXE_PATH+ '/arm-linux-gnueabihf-'
 elif "x86" == platform:
