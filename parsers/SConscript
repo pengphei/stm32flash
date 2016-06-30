@@ -1,0 +1,45 @@
+#
+# parsers building script
+#
+
+Import('genv')
+
+env = Environment()
+env["CC"] = genv["CC"]
+env["CXX"] = genv["CXX"]
+env["AS"] = genv["AS"]
+env["AR"] = genv["AR"]
+env["LINK"] = genv["LINK"]
+env["OBJCOPY"] = genv["OBJCOPY"]
+env["NM"] = genv["NM"]
+env["ENV"] = genv["ENV"]
+
+dst = "parsers"
+
+inc = [
+    ".",
+]
+
+src = [
+    "binary.c",
+    "hex.c",
+]
+
+
+lib = [
+]
+
+env["CCFLAGS"] = [
+    "-O2",
+    "-Wall",
+    "-g",
+]
+env["LINKFLAGS"] = [
+]
+
+env["LIBPATH"] = [
+    genv["out"],
+]
+
+parsers_static = env.StaticLibrary(target=dst, source=src, LIBS=lib, CPPPATH=inc)
+Return("parsers_static")

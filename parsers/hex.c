@@ -27,7 +27,7 @@
 #include <string.h>
 
 #include "hex.h"
-#include "../utils.h"
+#include "../src/utils.h"
 
 typedef struct {
 	size_t		data_len, offset;

@@ -1,0 +1,54 @@
+#
+# stm32flash building script
+#
+
+Import('genv')
+
+env = Environment()
+env["CC"] = genv["CC"]
+env["CXX"] = genv["CXX"]
+env["AS"] = genv["AS"]
+env["AR"] = genv["AR"]
+env["LINK"] = genv["LINK"]
+env["OBJCOPY"] = genv["OBJCOPY"]
+env["NM"] = genv["NM"]
+env["ENV"] = genv["ENV"]
+
+dst = "stm32flash"
+
+inc = [
+    ".",
+    "../",
+]
+
+src = [
+    "dev_table.c",
+    "i2c.c",
+    "init.c",
+    "port.c",
+    "serial_common.c",
+    "serial_platform.c",
+    "stm32.c",
+    "utils.c",
+    "main.c",
+]
+
+
+lib = [
+    "parsers",
+]
+
+env["CCFLAGS"] = [
+    "-O2",
+    "-Wall",
+    "-g",
+]
+env["LINKFLAGS"] = [
+]
+
+env["LIBPATH"] = [
+    genv["out"],
+]
+
+stm32flash_exe = env.Program(target=dst, source=src, LIBS=lib, CPPPATH=inc)
+Return("stm32flash_exe")
