@@ -8,7 +8,9 @@ flashing tool for stm32 chips.
 Building
 =========================================
 
-scons platform=x64
+.. code:: shell
+
+   scons platform=x64
 
 .. note::
    
